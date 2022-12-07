@@ -20,3 +20,10 @@ workflows:
       - rule: $size() > 100
         extra-actions:
           - $addLabel("large")
+
+  - name: keep-calm
+    if:
+      - rule: $hasCodePattern("stupid")
+    then:
+      - $error("Keep calm and respect others")
+      - $fail("Invalid behavior detected")

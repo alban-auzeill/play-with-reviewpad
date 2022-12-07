@@ -10,6 +10,7 @@ labels:
 
 workflows:
   - name: label-pull-request-with-size
+    always-run: true
     if:
       - rule: $size() <= 30
         extra-actions:
@@ -22,6 +23,7 @@ workflows:
           - $addLabel("large")
 
   - name: keep-calm
+    always-run: true
     if:
       - rule: $hasCodePattern("stupid")
     then:
